@@ -25,14 +25,14 @@ const Hero = () => {
             Voluptatibus, quisquam. Ab ut officiis impedit.
           </p>
           <div className="flex items-start w-[75%] space-x-4">
-            <Link href="/rental">
+            <Link href="/home">
             <button className="bg-gray-200 bg-opacity-20 w-[160px] h-[50px] rounded-lg font-semibold">
-             Car Renting
+             Explore
             </button>
             </Link>
            
             <button className="w-[160px] h-[50px] rounded-lg border border-white font-semibold">
-              Fleet Listing
+             About Us
             </button>
           </div>
         </div>

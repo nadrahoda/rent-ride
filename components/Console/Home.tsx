@@ -20,7 +20,7 @@ const Home = () => {
       <div className="w-[85%] bg-gray-100">
         
        {page=='home' && <HomePage page={page} setPage={setPage}/>}
-       {/* {page =="book-taxi" && <BookTaxi/>} */}
+       {page =="book-taxi" && <BookTaxi/>}
        {page =='car-rent' && <RentCar/>}
        {page =='fleet-list' && <FleetList/>}
        {page == "driver-list" && <DriverList/>}

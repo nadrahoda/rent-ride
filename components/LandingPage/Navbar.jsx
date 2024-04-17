@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 const Navbar = () => {
   return (
     <div className='flex justify-between mx-20 pt-4'>
@@ -15,8 +16,10 @@ const Navbar = () => {
     
         </div>
         <div className='flex gap-5 text-white'>
-           <button>Log In</button>  
-           <button className='text-white bg-gray-100 bg-opacity-20 py-1 px-6 rounded-md font-normal text-sm h-[32px]'>Sign Up</button>
+          <Link href="/login"> <button>Log In</button>  </Link>
+          
+        <Link href="/signup"> <button className='text-white bg-gray-100 bg-opacity-20 py-1 px-6 rounded-md font-normal text-sm h-[32px]'>Sign Up</button>
+          </Link>  
            
         </div>
     </div>
