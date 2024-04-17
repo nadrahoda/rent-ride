@@ -19,7 +19,7 @@ const CarsFilter = ({ carsList, setBrand, orderCarList }: any) => {
     setBrandList(Array.from(BrandSet));
   };
   return (
-    <div className="mt-10 flex items-center justify-between">
+    <div className="mt-2 flex items-center justify-between">
       <div>
         <h2 className="text-[30px] font-bold  text-black ">Cars Catalog</h2>
         <h2 className="text-black">Explore our cars you might like</h2>

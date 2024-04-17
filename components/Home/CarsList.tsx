@@ -13,7 +13,7 @@ const CarsList = (props: any) => {
     }
   },[props.carList])
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
       {props.carsList.map((car: any, index: number) => (
         <div onClick={()=>{(document as any).getElementById('my_modal_4').showModal();
       setSelectedCar(car)

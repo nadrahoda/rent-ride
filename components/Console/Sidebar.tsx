@@ -9,7 +9,7 @@ import { LuLogOut } from "react-icons/lu";
 const Sidebar = ({page, setPage}:any) => {
   return (
     <>
-      <div className="text-white bg-black h-screen bg-opacity-90">
+      <div className="text-white bg-black h-full bg-opacity-90">
         <div className="flex items-center w-full justify-center pt-4">
           <img src="/logowhite.png" height={120} width={120} alt="Logo" />
         </div>
@@ -32,19 +32,27 @@ const Sidebar = ({page, setPage}:any) => {
               <IoCarSportSharp />
               <span className="ml-3">Rent Car</span>
             </li>
-            <li className="bg-white text-black rounded-md h-[36px] pl-4 flex items-center font-semibold text-base cursor-pointer">
+            <li className="bg-white text-black rounded-md h-[36px] pl-4 flex items-center font-semibold text-base cursor-pointer" onClick={()=> {
+              setPage('hire-driver')
+            }}>
               <FaUser />
               <span className="ml-3">Hire Driver</span>
             </li>
-            <li className="bg-white text-black rounded-md h-[36px] pl-4 flex items-center font-semibold text-base cursor-pointer">
+            <li className="bg-white text-black rounded-md h-[36px] pl-4 flex items-center font-semibold text-base cursor-pointer" onClick={()=> {
+              setPage('fleet-list')
+            }}>
               <AiOutlineForm />
               <span className="ml-3">Fleet Listing</span>
             </li>
-            <li className="bg-white text-black rounded-md h-[36px] pl-4 flex items-center font-semibold text-base cursor-pointer">
+            <li className="bg-white text-black rounded-md h-[36px] pl-4 flex items-center font-semibold text-base cursor-pointer" onClick={()=> {
+              setPage('driver-list')
+            }}>
               <ImUsers />
               <span className="ml-3">Driver Listing</span>
             </li>
-            <li className="bg-white text-black rounded-md h-[36px] pl-4 flex items-center font-semibold text-base cursor-pointer">
+            <li onClick={()=> {
+              setPage('contact')
+            }} className="bg-white text-black rounded-md h-[36px] pl-4 flex items-center font-semibold text-base cursor-pointer">
               <FaPhone />
               <span className="ml-3">Contact Us</span>
             </li>

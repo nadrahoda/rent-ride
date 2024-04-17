@@ -1,8 +1,8 @@
 import React from "react";
 
-const HomePage = () => {
+const HomePage = ({page, setPage}:any) => {
   return (
-    <div className="w-[75%] mx-auto mt-[2px]">
+    <div className="w-[75%] mx-auto mt-[2px] h-screen">
       <div className="flex flex-wrap justify-center">
         <div className="flex w-full h-full">
           <div className="w-full p-4">
@@ -11,7 +11,9 @@ const HomePage = () => {
               <h2 className="text-black font-bold text-xl">Taxi Booking Service</h2>
               <p className=" italic text-gray-500 pt-5">Book taxis effortlessly, ensuring reliable rides from anywhere with quick scheduling and secure payments.</p>
              
-              <button className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-8 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black">
+              <button className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-8 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black" onClick={()=> {
+              setPage('book-taxi')
+            }}>
                Book
               </button>
               </div>
@@ -29,7 +31,9 @@ const HomePage = () => {
               <div className="w-[70%]">
               <h2 className="text-black font-bold text-xl">Car Rental Service</h2>
               <p className=" italic text-gray-500 pt-5">Convenient self-drive car rentals with flexible booking and pickup options.</p>
-              <button className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-4 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black">
+              <button className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-4 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black" onClick={()=> {
+              setPage('car-rent')
+            }}>
                Rent Now
               </button>
               </div>
@@ -45,7 +49,9 @@ const HomePage = () => {
               <div className="w-[70%]">
               <h2 className="text-black font-bold text-xl">Driver Rental Service</h2>
               <p className=" italic text-gray-500 pt-5">Hire drivers: part-time or full-time, tailored to your needs.</p>
-              <button className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-4 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black">
+              <button className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-4 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black"  onClick={()=> {
+              setPage('hire-driver')
+            }}>
                Hire Now
               </button>
               </div>
@@ -63,7 +69,9 @@ const HomePage = () => {
               <div className="w-[70%]">
               <h2 className="text-black font-bold text-xl">Fleet Listing</h2>
               <p className=" italic text-gray-500 pt-5">List your car, earn money: simple form, diverse fleet opportunities.</p>
-              <button className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-4 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black">
+              <button onClick={()=> {
+              setPage('fleet-list')
+            }} className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-4 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black">
             List Now
               </button>
               </div>
@@ -79,7 +87,9 @@ const HomePage = () => {
               <div className="w-[70%]">
               <h2 className="text-black font-bold text-xl">Driver Application</h2>
               <p className=" italic text-gray-500 pt-5">Apply to become a driver: fill out form, join our team today</p>
-              <button className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-4 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black">
+              <button onClick={()=> {
+              setPage('driver-list')
+            }} className="bg-gray-800 flex items-center justify-center text-center h-[36px] text-sm font-medium text-white px-4 py-1 mt-4 rounded-full hover:border-black hover:border-2 hover:bg-white hover:text-black">
                Fill a form
               </button>
               </div>

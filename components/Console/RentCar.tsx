@@ -45,7 +45,7 @@ const rental = () => {
     }
   },[showToast])
   return (
-    <div className=''>
+    <div className='min-h-screen'>
      
 
      <div className="p-5 sm:px-10 md:px-20 ">

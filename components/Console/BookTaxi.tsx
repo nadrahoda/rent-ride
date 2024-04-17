@@ -29,7 +29,7 @@ const BookTaxi = () => {
   }
 
   return (
-    <div className=''>
+    <div className='h-screen'>
     <UserLocationContext.Provider value={{userLocation,setUserLocation}}>
     <SourceCordiContext.Provider value={{sourceCordinates,setSourceCordinates}}>
     <DestinationCordiContext.Provider value={{destinationCordinates,setDestinationCordinates}}>

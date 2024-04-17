@@ -15,20 +15,23 @@ const CarCard = (props: any) => {
   }, [props.car]);
   return (
     car && (
-      <div className="group bg-gray-50 p-2 sm:p-5 hover:bg-white hover:border-[1px] cursor-pointer duration-50 border-orange-500 rounded-3xl m-1 sm:m-5 shadow-md">
-        <h2 className="text-[20px] font-medium mb-2 text-black"> {car.name}</h2>
-        <h2 className="text-[28px] font-bold mb-2 text-black">
+      <div className="group bg-gray-50 p-2 sm:p-5 hover:bg-white hover:border-[1px] cursor-pointer duration-50 border-gray-500 rounded-3xl m-1 sm:m-5 shadow-md h-[330px] w-[265px]">
+        <h2 className="text-[16px] font-medium mb-2 text-black"> {car.name}</h2>
+        <h2 className="text-[20px] font-bold mb-2 text-black">
           <span className="text-[12px] font-light">Rs. </span>
           {car.price}
           <span className="text-[14px] font-light"> /day</span>
         </h2>
+        <div className="flex items-center  justify-center">
         <Image
           src={car.image?.url}
           alt={car.name}
-          width={220}
-          height={200}
-          className="w-[250px] h-[150px] mb-3 object-contain"
+          width={150}
+          height={150}
+          className="w-[150px] h-[150px] mb-3 object-contain "
         />
+        </div>
+       
         <div className="flex justify-around group-hover:hidden">
           <div className="text-center text-gray-500">
             <PiSteeringWheelFill className="w-full text-[22px] mb-2" />
@@ -47,9 +50,9 @@ const CarCard = (props: any) => {
             </h2>
           </div>
         </div>
-        <button className="hidden group-hover:flex bg-gradient-to-r from-orange-400 to-orange-600  p-2 rounded-lg text-white w-full px-5 justify-between">
+        <button className="hidden group-hover:flex bg-gradient-to-r from-gray-400 to-gray-600  p-2 rounded-lg text-white w-full px-5 justify-between">
           Rent Now
-          <span className="bg-orange-500 p-1 rounded-md">
+          <span className="bg-gray-500 p-1 rounded-md">
             <FaArrowRight size={15} />
           </span>
         </button>
