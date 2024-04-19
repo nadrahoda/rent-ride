@@ -11,6 +11,23 @@ function Booking() {
    
    const {carAmount, setCarAmount}= useContext(SelectedCarAmountContext);
 const router:any=useRouter();
+const [loading, setLoading]= useState(false);
+const [successMessage, setSuccessMessage] = useState('');
+
+const handleBooking = () => {
+  // Show loader
+  setLoading(true);
+
+  // Simulate booking process with a delay
+  setTimeout(() => {
+      // Hide loader
+      setLoading(false);
+      // Set success message
+      setSuccessMessage('Taxi booked successfully. Check your message or email.');
+      // Redirect to payment page
+      
+  }, 2000); // Adjust the delay as needed
+};
 
   return (
     <div className='p-5 '>
@@ -21,13 +38,22 @@ const router:any=useRouter();
        
         <Cars />
         <Cards/>
-        <button className={`w-full
-         bg-gray-900 text-white font-semibold py-3
-        p-1 rounded-2xl
-        mt-4 ${!carAmount?'bg-gray-100 cursor-not-allowed': ''} ${!carAmount ? 'opacity-50 ' : ''}`}
-       
-        onClick={()=>carAmount && router.push('/payment')} disabled={!carAmount}
-        >Book</button>
+        {loading ? (
+          <div className='loader text-black'>Searching for your ride...</div>
+        ):(
+          <button className={`w-full
+          bg-gray-900 text-white font-semibold py-3
+         p-1 rounded-2xl
+         mt-4 ${!carAmount?'bg-gray-100 cursor-not-allowed': ''} ${!carAmount ? 'opacity-50 ' : ''}`}
+        
+         onClick={handleBooking}
+         >Book</button>
+        )}
+        {successMessage && (
+                    // Show success message after booking
+                    <div className="success-message text-black">{successMessage}</div>
+                )}
+    
         
         </div> 
     </div>
