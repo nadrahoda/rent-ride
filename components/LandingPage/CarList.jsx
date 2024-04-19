@@ -10,13 +10,13 @@ const CarList = () => {
     <div className="mt-[6%] mb-[4%]">
       <div className="flex flex-col space-y-3 justify-center items-center">
         <h3>Best Offer</h3>
-        <h1 className="text-3xl font-semibold">Our Featured Car</h1>
+        <h1 className="text-3xl font-semibold">Our Featured Rental Car</h1>
       </div>
 
       <div className="cards mt-[4%] flex justify-center ">
         <div className="flex flex-col space-y-6">
           <div className="grid grid-flow-col md:col-span-3 col-span-1 gap-6 ">
-            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[350px] bg-gray-900 bg-opacity-40 relative ">
+            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[320px] bg-gray-900 bg-opacity-40 relative ">
               <div className="flex flex-col justify-center items-center mb-2">
                 <Image
                   src="/Innova.png"
@@ -25,7 +25,7 @@ const CarList = () => {
                   width={150}
                   height={150}
                 />
-                <p>BMW</p>
+                <p>Innova</p>
               </div>
               <div className="">
                 <p className="text-center py-2  bg-gray-800">
@@ -40,7 +40,7 @@ const CarList = () => {
                         className="bg-gray-500 bg-opacity-50 p-1 rounded-full"
                       />
                       <span className="text-xs flex justify-center items-center ml-2">
-                        Sedan
+                        SUV
                       </span>
                     </p>
                     <p className="inline-flex ">
@@ -62,7 +62,7 @@ const CarList = () => {
                         className="bg-gray-500 bg-opacity-50 p-1 rounded-full"
                       />
                       <span className="text-xs flex justify-center items-center ml-2">
-                        4 Seats
+                        7 Seats
                       </span>
                     </p>
                     <p className="inline-flex ">
@@ -77,30 +77,30 @@ const CarList = () => {
                     </p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
+                {/* <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
                   <button className="w-1/2 h-[40px] bg-gray-700  rounded-bl-lg font-semibold">
                     Details
                   </button>
                   <button className="w-1/2 bg-black bg-opacity-90 rounded-br-lg font-semibold">
                     Book
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
-            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[350px] bg-gray-900 bg-opacity-40 relative ">
+            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[320px] bg-gray-900 bg-opacity-40 relative ">
               <div className="flex flex-col justify-center items-center mb-2">
                 <Image
-                  src="/Innova.png"
+                  src="/audo.png"
                   alt="Car"
                   className=""
-                  width={150}
-                  height={150}
+                  width={200}
+                  height={180}
                 />
-                <p>BMW</p>
+                <p>Audi</p>
               </div>
               <div className="">
                 <p className="text-center py-2  bg-gray-800">
-                  Starting at Rs. 3000/Day
+                  Starting at Rs. 7000/Day
                 </p>
                 <div className="flex justify-between items-center mx-10">
                   <div className="flex flex-col mt-4 space-y-2">
@@ -133,7 +133,7 @@ const CarList = () => {
                         className="bg-gray-500 bg-opacity-50 p-1 rounded-full"
                       />
                       <span className="text-xs flex justify-center items-center ml-2">
-                        4 Seats
+                        5 Seats
                       </span>
                     </p>
                     <p className="inline-flex ">
@@ -148,30 +148,30 @@ const CarList = () => {
                     </p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
+                {/* <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
                   <button className="w-1/2 h-[40px] bg-gray-700  rounded-bl-lg font-semibold">
                     Details
                   </button>
                   <button className="w-1/2 bg-black bg-opacity-90 rounded-br-lg font-semibold">
                     Book
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
-            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[350px] bg-gray-900 bg-opacity-40 relative ">
+            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[320px] bg-gray-900 bg-opacity-40 relative ">
               <div className="flex flex-col justify-center items-center mb-2">
                 <Image
-                  src="/Innova.png"
+                  src="/Creta.png"
                   alt="Car"
                   className=""
                   width={150}
                   height={150}
                 />
-                <p>BMW</p>
+                <p>Creta</p>
               </div>
               <div className="">
                 <p className="text-center py-2  bg-gray-800">
-                  Starting at Rs. 3000/Day
+                  Starting at Rs. 2800/Day
                 </p>
                 <div className="flex justify-between items-center mx-10">
                   <div className="flex flex-col mt-4 space-y-2">
@@ -204,7 +204,7 @@ const CarList = () => {
                         className="bg-gray-500 bg-opacity-50 p-1 rounded-full"
                       />
                       <span className="text-xs flex justify-center items-center ml-2">
-                        4 Seats
+                        5 Seats
                       </span>
                     </p>
                     <p className="inline-flex ">
@@ -219,32 +219,32 @@ const CarList = () => {
                     </p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
+                {/* <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
                   <button className="w-1/2 h-[40px] bg-gray-700  rounded-bl-lg font-semibold">
                     Details
                   </button>
                   <button className="w-1/2 bg-black bg-opacity-90 rounded-br-lg font-semibold">
                     Book
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
           <div className="grid grid-flow-col md:col-span-3 col-span-1 gap-6 ">
-            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[350px] bg-gray-900 bg-opacity-40 relative ">
-              <div className="flex flex-col justify-center items-center mb-2">
+            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[320px] bg-gray-900 bg-opacity-40 relative ">
+              <div className="flex flex-col justify-center items-center mb-2 mt-6">
                 <Image
-                  src="/Innova.png"
+                  src="/mercedes.png"
                   alt="Car"
                   className=""
-                  width={150}
+                  width={220}
                   height={150}
                 />
-                <p>BMW</p>
+                <p>Mercedes</p>
               </div>
               <div className="">
                 <p className="text-center py-2  bg-gray-800">
-                  Starting at Rs. 3000/Day
+                  Starting at Rs. 6000/Day
                 </p>
                 <div className="flex justify-between items-center mx-10">
                   <div className="flex flex-col mt-4 space-y-2">
@@ -277,7 +277,7 @@ const CarList = () => {
                         className="bg-gray-500 bg-opacity-50 p-1 rounded-full"
                       />
                       <span className="text-xs flex justify-center items-center ml-2">
-                        4 Seats
+                        5 Seats
                       </span>
                     </p>
                     <p className="inline-flex ">
@@ -292,30 +292,30 @@ const CarList = () => {
                     </p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
+                {/* <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
                   <button className="w-1/2 h-[40px] bg-gray-700  rounded-bl-lg font-semibold">
                     Details
                   </button>
                   <button className="w-1/2 bg-black bg-opacity-90 rounded-br-lg font-semibold">
                     Book
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
-            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[350px] bg-gray-900 bg-opacity-40 relative ">
-              <div className="flex flex-col justify-center items-center mb-2">
+            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[320px] bg-gray-900 bg-opacity-40 relative ">
+              <div className="flex flex-col justify-center items-center mb-2 mt-5">
                 <Image
-                  src="/Innova.png"
+                  src="/mustang.png"
                   alt="Car"
                   className=""
-                  width={150}
+                  width={220}
                   height={150}
                 />
-                <p>BMW</p>
+                <p>Mustang</p>
               </div>
               <div className="">
                 <p className="text-center py-2  bg-gray-800">
-                  Starting at Rs. 3000/Day
+                  Starting at Rs. 9000/Day
                 </p>
                 <div className="flex justify-between items-center mx-10">
                   <div className="flex flex-col mt-4 space-y-2">
@@ -326,7 +326,7 @@ const CarList = () => {
                         className="bg-gray-500 bg-opacity-50 p-1 rounded-full"
                       />
                       <span className="text-xs flex justify-center items-center ml-2">
-                        Sedan
+                        Sports
                       </span>
                     </p>
                     <p className="inline-flex ">
@@ -363,30 +363,30 @@ const CarList = () => {
                     </p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
+                {/* <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
                   <button className="w-1/2 h-[40px] bg-gray-700  rounded-bl-lg font-semibold">
                     Details
                   </button>
                   <button className="w-1/2 bg-black bg-opacity-90 rounded-br-lg font-semibold">
                     Book
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
-            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[350px] bg-gray-900 bg-opacity-40 relative ">
-              <div className="flex flex-col justify-center items-center mb-2">
+            <div className="border-2 border-white rounded-xl border-opacity-15 w-[280px] h-[320px] bg-gray-900 bg-opacity-40 relative ">
+              <div className="flex flex-col justify-center items-center mb-2 mt-8">
                 <Image
-                  src="/Innova.png"
+                  src="/Innovawhite.png"
                   alt="Car"
                   className=""
-                  width={150}
+                  width={200}
                   height={150}
                 />
-                <p>BMW</p>
+                <p>Innova</p>
               </div>
               <div className="">
                 <p className="text-center py-2  bg-gray-800">
-                  Starting at Rs. 3000/Day
+                  Starting at Rs. 5000/Day
                 </p>
                 <div className="flex justify-between items-center mx-10">
                   <div className="flex flex-col mt-4 space-y-2">
@@ -419,7 +419,7 @@ const CarList = () => {
                         className="bg-gray-500 bg-opacity-50 p-1 rounded-full"
                       />
                       <span className="text-xs flex justify-center items-center ml-2">
-                        4 Seats
+                        7 Seats
                       </span>
                     </p>
                     <p className="inline-flex ">
@@ -434,14 +434,14 @@ const CarList = () => {
                     </p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
+                {/* <div className="absolute bottom-0 flex justify-center w-full border-t-2  border-white border-opacity-15 divide-x">
                   <button className="w-1/2 h-[40px] bg-gray-700  rounded-bl-lg font-semibold">
                     Details
                   </button>
                   <button className="w-1/2 bg-black bg-opacity-90 rounded-br-lg font-semibold">
                     Book
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

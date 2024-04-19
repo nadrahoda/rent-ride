@@ -37,3 +37,43 @@
   backdrop-filter: blur(5px); /* Apply blur effect */
   z-index: 1000;
 }
+
+.loading-animation {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+  margin: auto;
+}
+
+.loader .loading-animation div {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: orange;
+  animation: loading 0.8s infinite alternate;
+}
+
+@keyframes loading {
+  from {
+      transform: scale(0);
+  }
+  to {
+      transform: scale(1);
+  }
+}
+
+.dot1 {
+  animation-delay: -0.32s;
+}
+
+.dot2 {
+  animation-delay: -0.16s;
+}
+
+.dot3 {
+  animation-delay: 0s;
+}
+
+.dot4 {
+  animation-delay: 0.16s;
+}

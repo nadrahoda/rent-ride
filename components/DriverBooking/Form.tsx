@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { createBooking, getStoreLocations } from "@/services";
+import { createDriverBooking, getStoreLocations } from "@/services";
 import { DriverContext } from "@/context/DriverContext";
 
 const Form = ({driver}:any) => {
@@ -50,7 +50,7 @@ const Form = ({driver}:any) => {
     
       const handleSubmit = async() => {
         console.log(formValue);
-        const resp= await createBooking(formValue);
+        const resp= await createDriverBooking(formValue);
         console.log(resp);
         if(resp){
             setShowToast(true);
@@ -58,7 +58,7 @@ const Form = ({driver}:any) => {
       };
 
   return (
-    <div>
+    <div className="px-5 pt-3">
       <div className="flex flex-col w-full mb-5">
         <label className="text-gray-400">Pickup Location</label>
         
@@ -67,7 +67,7 @@ const Form = ({driver}:any) => {
           onChange={handleChange}
           placeholder="Type here"
           name="address"
-          className="input input-bordered w-full max-w-lg"
+          className="input input-bordered w-full max-w-lg select select-bordered w-full max-w-lg border-2 rounded-lg border-black py-1"
         />
       </div>
       <div className="flex flec-col gap-5 mb-5">
@@ -79,7 +79,7 @@ const Form = ({driver}:any) => {
             min={today}
             placeholder="Type here"
             name="pickUpDate"
-            className="input input-bordered w-full max-w-lg"
+            className="input input-bordered w-full max-w-lg border-2 border-black rounded-lg"
           />
         </div>
         <div className="flex flex-col w-full">
@@ -89,7 +89,7 @@ const Form = ({driver}:any) => {
             onChange={handleChange}
             placeholder="Type here"
             name="dropOffDate"
-            className="input input-bordered w-full max-w-lg"
+            className="input input-bordered w-full max-w-lg border-2 border-black rounded-lg"
           />
         </div>
       </div>
@@ -101,7 +101,7 @@ const Form = ({driver}:any) => {
             onChange={handleChange}
             placeholder="Type here"
             name="pickUpTime"
-            className="input input-bordered w-full max-w-lg"
+            className="input input-bordered w-full max-w-lg border-2 border-black rounded-lg"
           />
         </div>
         <div className="flex flex-col w-full mb-5">
@@ -111,7 +111,7 @@ const Form = ({driver}:any) => {
             onChange={handleChange}
             placeholder="Type here"
             name="dropOffTime"
-            className="input input-bordered w-full max-w-lg"
+            className="input input-bordered w-full max-w-lg border-2 border-black rounded-lg"
           />
         </div>
       </div>
@@ -122,14 +122,14 @@ const Form = ({driver}:any) => {
           placeholder="Type here"
           onChange={handleChange}
           name="contactNumber"
-          className="input input-bordered w-full max-w-lg"
+          className="input input-bordered w-full max-w-lg border-2 border-black rounded-lg py-1 pl-2"
         />
       </div>
-      <div className="modal-action">
+      <div className="modal-action flex justify-end space-x-3">
    
 
-   <button className="btn">Close</button>
-   <button className="btn bg-orange-500 text-white hover:bg-orange-800" onClick={handleSubmit}>Save</button>
+   <button className="btn rounded-lg px-3 py-1">Close</button>
+   <button className="btn bg-orange-500 rounded-lg px-3 py-1 text-white hover:bg-orange-800" onClick={handleSubmit}>Save</button>
    </div>
     </div>
   )

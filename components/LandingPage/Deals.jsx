@@ -17,8 +17,8 @@ const Deals = () => {
                 <div className='mr-4 mt-1'><FaHandshakeSimple className='border border-white p-2 rounded-md' fill='white' size={40}/></div>
                 <div>
                     <h3 className='text-xl font-semibold'>Deals for every budget</h3>
-                    <p className='text-gray-400'>Looking for a car rental for your next trip?
-                     <br/>   Here are some tips to help you find
+                    <p className='text-gray-400'>Seeking a car rental for your upcoming adventure? 
+                     <br/>   Let us guide you.
                     </p>
                 </div>
             </div>
@@ -26,8 +26,8 @@ const Deals = () => {
                 <div className='mr-4 mt-1'><IoIosPricetags className='border border-white p-2 rounded-md' fill='white' size={40}/></div>
                 <div>
                     <h3 className='text-xl font-semibold'>Best price guaranteed</h3>
-                    <p className='text-gray-400'>Looking for a car rental for your next trip?
-                     <br/>   Here are some tips to help you find
+                    <p className='text-gray-400'>Embark on your journey with confidence, <br/>knowing you've secured the best rates available
+                  
                     </p>
                 </div>
             </div>
@@ -35,8 +35,15 @@ const Deals = () => {
                 <div className='mr-4 mt-1'><IoSettingsSharp className='border border-white p-2 rounded-md' fill='white' size={40}/></div>
                 <div>
                     <h3 className='text-xl font-semibold'>24/7 Support</h3>
-                    <p className='text-gray-400'>Looking for a car rental for your next trip?
-                     <br/>   Here are some tips to help you find
+                    <p className='text-gray-400'>Enjoy peace of mind with our dedicated support team <br/>available to assist you anytime.
+
+
+
+
+
+
+
+                
                     </p>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+
 const Navbar = () => {
   return (
     <div className='flex justify-between mx-20 pt-4'>
@@ -8,11 +9,12 @@ const Navbar = () => {
             <Image src='/logowhite.png' width={100} height={100} alt='Logo'/>
         </div>
         <div className='menu flex gap-10 text-white text-sm font-normal'>
-            <p className='cursor-pointer'>Rent</p>
-            <p className='cursor-pointer'>Host</p>
-            <p className='cursor-pointer'>Ride</p>
-            <p className='cursor-pointer'>Service</p>
-            <p className='cursor-pointer'>Contact</p>
+          <Link href="/home"><p className='cursor-pointer'>Rent</p></Link>
+          <Link href="/home"><p className='cursor-pointer'>Host</p></Link>
+          <Link href="/home"><p className='cursor-pointer'>Ride</p></Link>
+          <Link href="/home"><p className='cursor-pointer'>Service</p></Link>
+          <Link href="/home"><p className='cursor-pointer'>Contact</p></Link>
+            
     
         </div>
         <div className='flex gap-5 text-white'>

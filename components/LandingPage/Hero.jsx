@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Image from "next/image";
 import { IoLocationOutline } from "react-icons/io5";
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight, FaArrowRightArrowLeft, FaRightLeft } from "react-icons/fa6";
 import Brand from './Brand'
 import Steps from './Steps'
 import Deals from './Deals'
@@ -17,23 +17,20 @@ const Hero = () => {
 
       <div className="flex mt-[6%] ">
         <div className="flex flex-col justify-center items-center w-1/2 space-y-6">
-          <h2 className="uppercase text-white font-bold text-6xl  w-[75%]">
-            We Rent the highest caliber automobiles
+          <h2 className="uppercase text-white font-bold text-5xl  w-[75%]">
+          Rent&Ride: <br/>Your One-Stop Mobility Solution
           </h2>
           <p className="text-white w-[75%]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Voluptatibus, quisquam. Ab ut officiis impedit.
+          Easily book taxis, rent cars, hire drivers, earn money listing your vehicle and find employment as a registered driver.
           </p>
           <div className="flex items-start w-[75%] space-x-4">
             <Link href="/home">
-            <button className="bg-gray-200 bg-opacity-20 w-[160px] h-[50px] rounded-lg font-semibold">
-             Explore
+            <button className="bg-gray-200 bg-opacity-20 w-[200px] h-[50px] rounded-lg font-semibold flex items-center justify-center">
+          <span className="mr-2"> Rent with us</span>   <FaArrowRight size={18}/>
             </button>
             </Link>
            
-            <button className="w-[160px] h-[50px] rounded-lg border border-white font-semibold">
-             About Us
-            </button>
+           
           </div>
         </div>
         <div className="flex justify-center items-center w-1/2">
@@ -47,7 +44,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <div className="bg-black bg-opacity-70 mx-[15%]  rounded-2xl h-[200px] ">
           <div className="px-[10%] py-[5%]">
             <div className="flex justify-between text-white ">
@@ -87,7 +84,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <Brand/>
       <Steps/>
