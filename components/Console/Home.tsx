@@ -18,7 +18,6 @@ const Home = () => {
         <Sidebar page={page} setPage={setPage}/>
       </div>
       <div className="w-[85%] bg-gray-100">
-        
        {page=='home' && <HomePage page={page} setPage={setPage}/>}
        {page =="book-taxi" && <BookTaxi/>}
        {page =='car-rent' && <RentCar/>}
@@ -26,9 +25,6 @@ const Home = () => {
        {page == "driver-list" && <DriverList/>}
        {page == "contact" && <Contact/>}
        {page == "hire-driver" && <HireDriver/>}
-
-    
-      
       </div>
     </div>
   </>
