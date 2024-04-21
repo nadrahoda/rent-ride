@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { createDriverBooking, getStoreLocations } from "@/services";
 import { DriverContext } from "@/context/DriverContext";
-
+import { collection, addDoc } from "firebase/firestore"; 
+import {db} from '../../firebase'
 const Form = ({driver}:any) => {
     const [storeLocation, setStoreLocation] = useState<any>([]);
     const {showToast, setShowToast}=useContext(DriverContext);
+    const [location,setLocation]=useState('')
+    const [phone,setPhone]=useState('')
     const [formValue, setFormValue] = useState({
       location: '',
       pickUpDate: '',
@@ -47,13 +50,74 @@ const Form = ({driver}:any) => {
           [event.target.name]: event.target.value,
         });
       };
+
     
       const handleSubmit = async() => {
-        console.log(formValue);
-        const resp= await createDriverBooking(formValue);
-        console.log(resp);
-        if(resp){
-            setShowToast(true);
+        console.log(formValue.location);
+
+       
+          console.log(formValue);
+          const resp= await createDriverBooking(formValue);
+          console.log(resp);
+         
+      
+  
+        
+        const emailData = {
+          mail: localStorage.getItem('USER'),
+          subject: 'Confirmation of Driver Appointment from rent&ride',
+          text: `We are delighted to inform you that your driver appointment with rent&ride has been successfully confirmed. Below are the details of your reservation:
+
+          Driver name: ${driver.name}
+          Location: ${location}
+          Booking Date: ${formValue.pickUpDate}
+          Booking Time: ${formValue.pickUpTime}
+          Drop off Date: ${formValue.dropOffDate}
+          Drop off Time: ${formValue.dropOffTime}
+          Driver Contact: ${phone}
+         
+          Should you have any inquiries or require further assistance, please do not hesitate to contact us. We are dedicated to ensuring your satisfaction and a smooth experience with rent7ride.
+
+          Warm regards,
+          rent&ride Customer Service Team
+          `,
+        };
+      
+        try {
+          const response = await fetch('/api/sendEmail', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(emailData),
+          });
+      
+          if (response.ok) {
+            console.log('Email sent successfully!');
+            alert('Your booking has been confirmed')
+            try {
+     
+              const docRef = await addDoc(collection(db,'driverbooking'), {
+          'Driver': driver.name,
+          'Location': location,
+          'PickupDate':formValue.pickUpDate,
+          'PickTime': formValue.pickUpTime,
+          'DropupDate': formValue.dropOffDate,
+          'DropTime':formValue.dropOffTime,
+          'phone':phone,
+            status: "pending", // Set the initial status as "Pending" or any other appropriate value
+              });
+              console.log("Document written with ID: ", docRef.id);
+           
+            } catch (e) {
+              console.error("Error adding document: ", e);
+            }
+          
+          } else {
+            console.error('Failed to send email:', await response.text());
+          }
+        } catch (error) {
+          console.error('Error sending email:', error);
         }
       };
 
@@ -64,7 +128,8 @@ const Form = ({driver}:any) => {
         
         <input
           type="text"
-          onChange={handleChange}
+          value={location}
+          onChange={(e)=>setLocation(e.target.value)}
           placeholder="Type here"
           name="address"
           className="input input-bordered w-full max-w-lg select select-bordered w-full max-w-lg border-2 rounded-lg border-black py-1"
@@ -76,7 +141,7 @@ const Form = ({driver}:any) => {
           <input
             type="date"
             onChange={handleChange}
-            min={today}
+            min={today.toISOString().split('T')[0]} 
             placeholder="Type here"
             name="pickUpDate"
             className="input input-bordered w-full max-w-lg border-2 border-black rounded-lg"
@@ -87,6 +152,7 @@ const Form = ({driver}:any) => {
           <input
             type="date"
             onChange={handleChange}
+            min={today.toISOString().split('T')[0]} 
             placeholder="Type here"
             name="dropOffDate"
             className="input input-bordered w-full max-w-lg border-2 border-black rounded-lg"
@@ -120,7 +186,8 @@ const Form = ({driver}:any) => {
         <input
           type="text"
           placeholder="Type here"
-          onChange={handleChange}
+          value={phone}
+          onChange={(e)=>setPhone(e.target.value)}
           name="contactNumber"
           className="input input-bordered w-full max-w-lg border-2 border-black rounded-lg py-1 pl-2"
         />

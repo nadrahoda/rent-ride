@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { collection, addDoc } from "firebase/firestore"; 
+import {db} from '../../firebase'
 const DriverList = () => {
 
     const [fullName, setFullName] = useState("");
@@ -17,42 +19,36 @@ const DriverList = () => {
   
     const handleFormSubmit = async (e: { preventDefault: () => void; }) => {
       e.preventDefault();
-  
-      if (!agreeTerms) {
+      
+     
+      if(fullName==''&&email==''&&phone==''&&location==''&&startDate==''&&licenseNumber==''&&carType==''&&transmissionType==''&&salary==''){
+        alert("Some fields are empty");
+        return;
+      }
+      else if (!agreeTerms) {
         alert("Please agree to the terms and conditions.");
         return;
       }
-  
       try {
-        const response = await axios.post("/api/driverRegistration", {
-          name: fullName,
-          email,
-          phone,
-          location,
+     
+            const docRef = await addDoc(collection(db,'driver'), {
+              name: fullName,
+          email:email,
+          phone:phone,
+          location:location,
           date: startDate, // Assuming startDate is the date of registration
           license_number: licenseNumber,
           car_type: carType,
           transmission_type: transmissionType,
           salary:salary,
           status: "pending", // Set the initial status as "Pending" or any other appropriate value
-        });
-  
-        console.log("Driver registration successful:", response.data);
-        // Optionally, you can reset the form fields after a successful submission
-        setFullName("");
-        setEmail("");
-        setPhone("");
-        setLocation("");
-        setStartDate("");
-        setDateOfBirth("");
-        setLicenseNumber("");
-        setCarType("");
-        setTransmissionType("");
-        setSalary("")
-        setAgreeTerms(false);
-      } catch (error) {
-        console.error("Error submitting driver registration:", error);
-      }
+            });
+            console.log("Document written with ID: ", docRef.id);
+            alert('Driver Registration Successfull')
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+        
     };
   
     const openTermsModal = () => {
@@ -317,7 +313,7 @@ required
         {/* Submit Button */}
         <div className="flex items-center justify-center mt-6">
           <button
-            type="submit"
+            onClick={(e)=>handleFormSubmit(e)}
             className="bg-gray-900 text-white px-4 py-2 rounded-md"
           >
             Register as Driver

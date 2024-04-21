@@ -1,7 +1,35 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-const Login = () => {
+import React, { useState } from 'react'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from '../../firebase'
+import { useRouter } from "next/router";
+const Login = ({setIsLoggedIn}:any) => {
+  
+  const navigate = useRouter();
+
+  const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+    function login(e:any){
+      e.preventDefault()
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log('logged in'+user);
+        alert('logged in succesfully')
+        localStorage.setItem('USER',email)
+        // setIsLoggedIn(true)
+        navigate.push("/home");
+
+        // ...
+      })
+      .catch((error) => {
+        console.log(error);
+        
+        alert('Wrong email or password')
+      });
+  }
   return (
     <>
       <div className="w-full  flex justify-center items-center bg-gray-200 ">
@@ -40,11 +68,13 @@ const Login = () => {
                   <form className="flex flex-col space-y-5 ">
                     <div className="flex flex-col gap-5">
                       <input
+                      value={email} onChange={(e)=>setEmail(e.target.value)}
                         type="email"
                         placeholder="Email Address"
                         className=" w-full h-[40px] rounded-md pl-2 text-black"
                       />
                       <input
+                      value={password} onChange={(e)=>setPassword(e.target.value)}
                         type="password"
                         placeholder="Password"
                         className="w-full h-[40px] rounded-md pl-2 text-black"
@@ -64,7 +94,7 @@ const Login = () => {
                     </div>
 
                     <div className="flex w-full">
-                      <button className="bg-gray-500 text-gray-200 font-semibold text-base w-full h-[40px] rounded-full">
+                      <button onClick={(e)=>login(e)} className="bg-gray-500 text-gray-200 font-semibold text-base w-full h-[40px] rounded-full">
                         Submit
                       </button>
                     </div>

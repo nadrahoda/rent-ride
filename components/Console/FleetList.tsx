@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { collection, addDoc } from "firebase/firestore"; 
+import {db} from '../../firebase'
 const FleetList = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -74,9 +76,29 @@ const FleetList = () => {
         );
         return;
       }
-  
+      else if (
+        hostDetails.name==''&&
+        hostDetails.email==''&&
+        hostDetails.number==''&&
+         hostDetails.panNumber==''&&
+         hostDetails.address==''&&
+        carDetails.licenseNumber==''&&
+      carDetails.brand==''&&
+         carDetails.model==''&&
+         carDetails.chassisNumber==''&&
+        carDetails.yearOfRegistration==''&&
+        carDetails.fromDate==''&&
+         carDetails.toDate==''&&
+     carDetails.expectedPricing==''&&
+       carDetails.city==''&&
+       carDetails.transmissionType==''&&
+        carDetails.fuelType
+      ){
+alert('Some field are empty')
+return;
+      }
       try {
-        const response = await axios.post("/api/carRegistration", {
+        const docRef = await addDoc(collection(db, 'cars',), {
           name: hostDetails.name,
           email: hostDetails.email,
           phone: hostDetails.number,
@@ -97,11 +119,11 @@ const FleetList = () => {
           
         });
   
-        console.log("Form submitted:", response.data);
-        setIsModalOpen(true);
-      } catch (error) {
-        console.error("Error submitting car registration:", error);
-      }
+        console.log("Document written with ID: ", docRef.id);
+            alert('Car registration is Successful')
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
     };
   
     const closeModal = () => {
@@ -555,9 +577,9 @@ const FleetList = () => {
               {/* Submit Button */}
               <div className="mt-6">
                 <button
-                  type="submit"
+                  
                   className="bg-gray-600 text-white px-6 py-2 rounded-full"
-                  onClick={handleModal}
+                  onClick={(e)=>{handleSubmit(e)}}
                 >
                   Submit
                 </button>

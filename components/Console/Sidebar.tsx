@@ -6,7 +6,7 @@ import { FaUser } from "react-icons/fa";
 import { AiOutlineForm } from "react-icons/ai";
 import { ImUsers } from "react-icons/im";
 import { LuLogOut } from "react-icons/lu";
-const Sidebar = ({page, setPage}:any) => {
+const Sidebar = ({page, setPage,SignOut}:any) => {
   return (
     <>
       <div className="text-white bg-black h-full bg-opacity-90">
@@ -56,7 +56,7 @@ const Sidebar = ({page, setPage}:any) => {
               <FaPhone />
               <span className="ml-3">Contact Us</span>
             </li>
-            <li className="flex justify-center items-center cursor-pointer pt-[10%]">
+            <li onClick={()=>SignOut()} className="flex justify-center items-center cursor-pointer pt-[10%]">
               <span className="mr-4 font-semibold">Log Out</span>
               <LuLogOut />
             </li>

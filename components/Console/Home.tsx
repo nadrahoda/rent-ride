@@ -7,15 +7,25 @@ import FleetList from './FleetList';
 import DriverList from './DriverList';
 import Contact from './Contact';
 import HireDriver from './HireDriver';
-
+import { getAuth, signOut } from "firebase/auth";
+import {auth} from '../../firebase'
 const Home = () => {
-    const [page, setPage] = useState('home');
+const [page, setPage] = useState('home');
+const SignOut = ()=>{
+  signOut(auth).then(() => {
+    alert('Signed out successfully')
+  }).catch((error) => {
+    console.log(error);
+    
+  });
+}
+
   return (
 
     <>
     <div className="flex h-full">
       <div className="w-[15%]">
-        <Sidebar page={page} setPage={setPage}/>
+        <Sidebar SignOut={SignOut} page={page} setPage={setPage}/>
       </div>
       <div className="w-[85%] bg-gray-100">
        {page=='home' && <HomePage page={page} setPage={setPage}/>}

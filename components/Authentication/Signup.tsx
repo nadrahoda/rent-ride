@@ -1,7 +1,33 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from 'react'
 import Link from "next/link";
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from '../../firebase'
+import { useRouter } from "next/router";
 const Signup = () => {
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const navigate = useRouter();
+
+  
+  function Signup(e:any){
+e.preventDefault()
+      createUserWithEmailAndPassword(auth, email, password)
+.then((userCredential) => {
+  // Signed up 
+  alert('User Signed Up successfully')
+  const user = userCredential.user;
+  console.log('signup '+user);   
+   navigate.push("/login");
+  // ...
+})
+.catch((error) => {
+
+  console.log(error);
+  alert(error.message)
+  // ..
+});
+  }
   return (
     <>
       <div className="w-full  flex justify-center items-center bg-gray-200 ">
@@ -52,6 +78,7 @@ const Signup = () => {
                     </div>
                     <div className="flex flex-col gap-5">
                       <input
+                      value={email} onChange={(e)=>{setEmail(e.target.value)}}
                         type="email"
                         placeholder="Email Address"
                         className=" w-full h-[40px] rounded-md pl-2 text-black"
@@ -62,6 +89,7 @@ const Signup = () => {
                         className=" w-full h-[40px] rounded-md pl-2 text-black"
                       />
                       <input
+                      value={password} onChange={(e)=>{setPassword(e.target.value)}}
                         type="password"
                         placeholder="Password"
                         className="w-full h-[40px] rounded-md pl-2 text-black"
@@ -70,7 +98,7 @@ const Signup = () => {
            
 
                     <div className="flex w-full">
-                      <button className="bg-gray-500 text-gray-200 font-semibold text-base w-full h-[40px] rounded-full">
+                      <button onClick={(e)=>Signup(e)} className="bg-gray-500 text-gray-200 font-semibold text-base w-full h-[40px] rounded-full">
                         Submit
                       </button>
                     </div>
