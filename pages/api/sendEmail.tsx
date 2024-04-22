@@ -2,7 +2,7 @@
 
 import nodemailer from "nodemailer";
 
-export default async function handler(req, res) {
+export default async function handler(req: { method: string; body: { mail: any; subject: any; text: any; html: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message?: string; error?: string; }): void; new(): any; }; }; }) {
   if (req.method === 'POST') {
     const { mail, subject, text, html } = req.body;
 
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     try {
       // Send mail using nodemailer
       const info = await transporter.sendMail({
-        from: '"NPPD!" <nppdcare@gmail.com>',
+        from: '"rent&ride!" <nppdcare@gmail.com>',
         to: mail,
         subject: subject,
         text: text,

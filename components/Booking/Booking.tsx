@@ -11,6 +11,7 @@ function Booking () {
   const router: any = useRouter()
   const [loading, setLoading] = useState(false)
   const [successMessage, setSuccessMessage] = useState('')
+  const [addressesFilled, setAddressesFilled] = useState(false)
 
   const handleBooking = () => {
     // Show loader
@@ -21,9 +22,7 @@ function Booking () {
       // Hide loader
       setLoading(false)
       // Set success message
-      setSuccessMessage(
-        'Taxi booked successfully. Check your message or email.'
-      )
+      setSuccessMessage('Sorry, no Taxi found in this area!')
       // Redirect to payment page
     }, 8000) // Adjust the delay as needed
   }
@@ -35,7 +34,7 @@ function Booking () {
         className='border-[1px] p-5 
         rounded-md flex flex-col space-y-8'
       >
-        <AutocompleteAddress />
+        <AutocompleteAddress onAddressesFilled={setAddressesFilled} />
 
         <Cars />
         <Cards />
@@ -54,10 +53,13 @@ function Booking () {
             className={`w-full
           bg-gray-900 text-white font-semibold py-3
          p-1 rounded-2xl
-         mt-4 ${!carAmount ? 'bg-gray-100 cursor-not-allowed' : ''} ${
-              !carAmount ? 'opacity-50 ' : ''
-            }`}
+         mt-4 ${
+           !carAmount || !addressesFilled
+             ? 'bg-gray-100 cursor-not-allowed'
+             : ''
+         } ${!carAmount || !addressesFilled ? 'opacity-50 ' : ''}`}
             onClick={handleBooking}
+            disabled={!carAmount || !addressesFilled}
           >
             Book
           </button>
