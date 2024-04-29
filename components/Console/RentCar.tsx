@@ -44,8 +44,8 @@ const rental = () => {
     }
   }, [showToast])
   return (
-    <div className='min-h-screen'>
-      <div className='p-5 sm:px-10 md:px-20 '>
+    <div className='min-h-screen flex items-center justify-center'>
+      <div className='p-5 sm:px-10 xl:px-10 md:px-4'>
         <BookingContext.Provider value={{ showToast, setShowToast }}>
           <CarsFilter
             carsList={carsOriginal}

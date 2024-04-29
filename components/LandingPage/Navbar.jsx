@@ -1,14 +1,44 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { auth } from '../../firebase'
+import { HiMenuAlt1 } from 'react-icons/hi'
+import { IoClose } from "react-icons/io5";
 
-const Navbar = () => {
+const Navbar = ({ SignOut }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        setIsLoggedIn(true)
+      } else {
+        setIsLoggedIn(false)
+      }
+    })
+    return () => unsubscribe()
+  }, [])
+  const handleLogout = async () => {
+    try {
+      await auth.signOut()
+      setIsLoggedIn(false)
+      router.push('/')
+    } catch (error) {
+      console.error('Error signing out:', error)
+    }
+  }
+
   return (
-    <div className='flex justify-between mx-20 pt-4'>
+    <>
+    <div className='hidden md:flex justify-between mx-10 xl:mx-20 pt-4'>
         <div className='logo cursor-pointer'>
             <Image src='/logowhite.png' width={100} height={100} alt='Logo'/>
         </div>
-        <div className='menu flex gap-10 text-white text-sm font-normal'>
+        <div className='menu flex gap-4 xl:gap-10 text-white text-sm font-normal'>
           <Link href="/home"><p className='cursor-pointer'>Rent</p></Link>
           <Link href="/home"><p className='cursor-pointer'>Host</p></Link>
           <Link href="/home"><p className='cursor-pointer'>Ride</p></Link>
@@ -25,6 +55,74 @@ const Navbar = () => {
            
         </div>
     </div>
+    <div className='relative md:hidden block'>
+      <div className='flex justify-between mx-6 pt-4'>
+       
+
+          <div className='logo cursor-pointer'>
+            <Image src='/logowhite.png' width={100} height={100} alt='Logo' />
+          </div>
+          <div className=''>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className='text-white focus:outline-none'
+          >
+            <HiMenuAlt1 />
+          </button>
+          </div>
+        {menuOpen && (
+          <div className='fixed inset-0 z-10 bg-white w-1/2'>
+            <div className='absolute top-0 right-0 m-2'>
+      <button onClick={() => setMenuOpen(false)} className='text-gray-800 focus:outline-none'>
+       <IoClose size={22}/>
+      </button>
+    </div>
+
+            <div className='flex flex-col pt-4 pl-4'>
+              <Link href='/home'>
+                <p className='text-gray-800 cursor-pointer py-2'>Taxi</p>
+              </Link>
+              <Link href='/home'>
+                <p className='text-gray-800 cursor-pointer py-2'>Car</p>
+              </Link>
+              <Link href='/home'>
+                <p className='text-gray-800 cursor-pointer py-2'>Driver</p>
+              </Link>
+              <Link href='/home'>
+                <p className='text-gray-800 cursor-pointer py-2'>Host</p>
+              </Link>
+              <Link href='/home'>
+                <p className='text-gray-800 cursor-pointer py-2'>Contact</p>
+              </Link>
+              <div className='mt-4 flex space-x-2'>
+                {isLoggedIn ? (
+                  <button
+                    onClick={() => handleLogout()}
+                    className='text-white bg-black py-2 px-4 rounded-md font-normal text-sm'
+                  >
+                    Log Out
+                  </button>
+                ) : (
+                  <>
+                    <Link href='/login'>
+                      <button className='text-white bg-black py-2 px-4 rounded-md font-normal text-sm'>
+                        Log In
+                      </button>
+                    </Link>
+                    <Link href='/signup'>
+                      <button className='text-white bg-black py-2 px-4 rounded-md font-normal text-sm'>
+                        Sign Up
+                      </button>
+                    </Link>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+    </>
   )
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 const Brand = () => {
   return (
-    <div className='h-[200px] bg-black bg-opacity-50 mt-[8%] flex items-center'>
+    <div className='h-[200px] bg-black bg-opacity-50 mt-[2%] flex items-center'>
     <div className='flex justify-between w-full mx-[5%]'>
       {/* Images */}
       <div className="flex justify-center items-center flex-1">

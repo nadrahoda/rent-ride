@@ -12,7 +12,7 @@ const DriversList = (props: any) => {
     }
   }, [props.driverList])
   return (
-    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
+    <div className='grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 2xl:grid-cols-4 flex items-center justify-center flex-col '>
       {props.driversList.map((driver: any, index: number) => (
         <div
           onClick={() => {

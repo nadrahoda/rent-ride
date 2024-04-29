@@ -29,8 +29,8 @@ const Signup = () => {
   return (
     <>
       <div className='w-full  flex justify-center items-center bg-gray-200 '>
-        <div className='bg-[white] container m-auto w-[70%] h-[600px] border shadow-xl rounded-3xl my-[4%] flex'>
-          <div className='w-[50%]'>
+        <div className='bg-[white] container m-auto w-full md:w-[70%] h-screen  md:h-[600px] md:border shadow-xl rounded-3xl  md:my-[4%] flex'>
+          <div className='w-[50%] md:block hidden'>
             <div className=' h-[530px] mx-8 my-16 flex flex-col px-12 justify-center items-center '>
               <h1 className='text-gray-700 font-bold text-5xl mb-3  '>
                 Your Travel Partner
@@ -47,7 +47,7 @@ const Signup = () => {
               />
             </div>
           </div>
-          <div className='w-[50%] bg-black rounded-r-3xl'>
+          <div className='w-full md:w-[50%]  bg-black md:rounded-r-3xl px-4'>
             <div className='flex flex-col justify-center items-center h-full'>
               <div className='flex justify-center items-center flex-col space-y-2'>
                 <Image

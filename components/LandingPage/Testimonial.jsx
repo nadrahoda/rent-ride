@@ -39,21 +39,21 @@ const Testimonial = () => {
     );
   };
   return (
-    <div className="bg-black w-full border-b border-white border-opacity-15">
+    <div className="bg-black w-full border-b border-white border-opacity-15 pb-10">
       <div className=" flex relative">
-        <div className="w-1/2 flex  ml-20 justify-center items-center">
+        <div className="md:w-1/2 w-full flex ml-4  md:ml-20 justify-center items-center">
           <div className="flex flex-col">
-            <h2 className="text-3xl font-semibold">
+            <h2 className="md:text-3xl text-lg font-semibold">
               Our Client's Reviews & Testimonials
             </h2>
-            <div className="w-[70%] mt-[4%]  relative h-[100px]">
+            <div className="md:w-[70%] w-[95%] mt-[4%]  relative md:h-[100px]">
               <FaQuoteLeft className="absolute top-0 left-0" />{" "}
-              <p className="text-base ml-[5%] pt-[2%]">
+              <p className="md:text-base text-sm ml-[5%] pt-[2%]">
                 {testimonials[currentTestimonial].quote}
               </p>
             </div>
             <div className="flex mt-[10%] w-full">
-              <div className="w-1/3">
+              <div className="md:w-1/3 w-1/2">
                 <div className="flex">
                   <RiStarSFill fill="orange" size={20} />
                   <RiStarSFill fill="orange" size={20} />
@@ -76,7 +76,7 @@ const Testimonial = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex gap-4 w-1/3">
+              <div className="flex gap-4 md:w-1/3 w-1/2">
                 <button className="text-white" onClick={prevTestimonial}>
                   <IoIosArrowDropleft c size={30} />
                 </button>
@@ -87,7 +87,7 @@ const Testimonial = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/2 ">
+        <div className="w-1/2  hidden md:block">
           <Image
             src="/audi.jpg"
             alt="Audi"

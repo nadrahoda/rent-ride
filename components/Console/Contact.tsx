@@ -39,8 +39,8 @@ const Contact = () => {
   }
   return (
     <div className='contact min-h-screen bg-gray-50 flex items-center justify-center text-black'>
-      <div className='container bg-white shadow-xl rounded-2xl border w-full md:w-[60%] border  flex'>
-        <div className='w-[60%] flex justify-center items-center flex-col '>
+      <div className='container bg-white shadow-xl rounded-2xl border w-full md:w-[80%] lg:w-[70%] xl:w-[60%] border  flex'>
+        <div className='w-full md:w-[60%] flex justify-center items-center flex-col '>
           <h2 className='py-6 text-2xl font-medium text-gray-500'>
             Write to us
           </h2>
@@ -90,7 +90,7 @@ const Contact = () => {
             </button>
           </form>
         </div>
-        <div className='w-[40%] bg-gray-600   shadow-xl rounded-r-2xl'>
+        <div className='w-[40%] sm:block hidden bg-gray-600   shadow-xl rounded-r-2xl'>
           <h2 className='py-6 text-2xl font-medium text-white text-center pb-20 pt-8'>
             Contact Us
           </h2>

@@ -7,7 +7,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className='w-full px-20 pt-10'>
+    <div className='w-full md:px-20 px-6 pt-10'>
         <div className='flex justify-between'>
         <div>
             <div className='flex flex-col '>
@@ -18,7 +18,7 @@ const Footer = () => {
                 </div>
         </div>
         <div>
-            <div className='flex flex-col'>
+            <div className='flex flex-col md:block hidden'>
                 <h2 className='text-xl'>Our Product</h2>
                 <p className='text-sm mt-4'>Driver</p>
                 <p className='text-sm'>Career</p>
@@ -27,7 +27,7 @@ const Footer = () => {
             </div>
         </div>
         <div>
-        <div className='flex flex-col'>
+        <div className='flex flex-col md:block hidden'>
                 <h2 className='text-xl'>Resources</h2>
                 <p className='text-sm mt-4'>Community</p>
                 <p className='text-sm'>Download</p>
@@ -36,7 +36,7 @@ const Footer = () => {
             </div>
         </div>
         <div>
-        <div className='flex flex-col'>
+        <div className='flex flex-col md:block hidden'>
                 <h2 className='text-xl'>About Us</h2>
                 <p className='text-sm mt-4'>Why choose us</p>
                 <p className='text-sm'>Our Story</p>

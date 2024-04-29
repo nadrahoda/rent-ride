@@ -44,7 +44,7 @@ const BookTaxi = () => {
               >
                 <div
                   className='grid grid-cols-1 
-   md:grid-cols-3'
+   lg:grid-cols-3'
                 >
                   <div className=''>
                     <Booking />

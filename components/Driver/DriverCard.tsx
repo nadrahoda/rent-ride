@@ -15,7 +15,7 @@ const DriverCard = (props: any) => {
   return (
     driver && (
       <>
-        <div className='group bg-white p-2 sm:p-5 hover:bg-white hover:border-[2px] cursor-pointer duration-50 border border-blue-500 rounded-3xl m-1 sm:m-5'>
+        <div className='group bg-white p-2 sm:p-5 hover:bg-white hover:border-[2px] cursor-pointer duration-50 border border-blue-500 rounded-3xl m-1 sm:m-5 flex items-center justify-center flex-col'>
           <h2 className='text-[20px] font-medium mb-2'> {driver.name}</h2>
           <h2 className='text-[28px] font-bold mb-2'>
             <span className='text-[12px] font-light'>Rs. </span>
@@ -29,7 +29,7 @@ const DriverCard = (props: any) => {
             height={200}
             className='w-[250px] h-[150px] mb-3 object-contain'
           />
-          <div className='flex justify-around group-hover:hidden'>
+          <div className='flex justify-between group-hover:hidden space-x-6'>
             <div className='text-center text-gray-500'>
               <h2 className='line-clamp-5 text-[14px] font-semibold'>
                 {' '}
@@ -42,7 +42,7 @@ const DriverCard = (props: any) => {
 
             <div className='text-center text-gray-500'>
               <h2 className='line-clamp-5 text-[14px] font-light'>
-                <VscWorkspaceTrusted className='w-full text-[18px] mb-2' />
+                <VscWorkspaceTrusted className='w-full text-[22px] mb-2' />
                 <span className='line-clamp-5 text-[12px] font-medium'>
                   {' '}
                   {driver.rating}{' '}

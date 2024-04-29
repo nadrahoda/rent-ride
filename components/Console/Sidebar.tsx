@@ -9,7 +9,7 @@ import { LuLogOut } from 'react-icons/lu'
 const Sidebar = ({ page, setPage, SignOut }: any) => {
   return (
     <>
-      <div className='text-white bg-black h-full bg-opacity-90'>
+      <div className='text-white bg-black h-full bg-opacity-90 rounded-2xl lg:block hidden'>
         <div className='flex items-center w-full justify-center pt-4'>
           <img src='/logowhite.png' height={120} width={120} alt='Logo' />
         </div>
@@ -86,6 +86,86 @@ const Sidebar = ({ page, setPage, SignOut }: any) => {
           </ul>
         </div>
       </div>
+      <div className='text-white bg-black h-full bg-opacity-90 rounded-2xl lg:hidden block'>
+        <div className='flex items-center w-full justify-center pt-4'>
+          <img src='/logowhite.png' height={50} width={50} alt='Logo' />
+        </div>
+        <div className='pt-[30%] flex items-center justify-center  mx-2'>
+          <ul className='flex flex-col space-y-8 w-[50%]'>
+            <li
+              onClick={() => {
+                setPage('home')
+              }}
+              className='text-white rounded-md flex flex-col h-[36px] items-center justify-center font-semibold text-sm cursor-pointer'
+            >
+              <IoHomeSharp fill='white' size={24}/> <span className='text-white'>Home</span>
+            </li>
+            <li
+              className='text-white rounded-md flex flex-col h-[36px] items-center justify-center font-semibold text-sm cursor-pointer'
+              onClick={() => {
+                setPage('book-taxi')
+              }}
+            >
+              <FaTaxi color='white' size={24}/> <span className=''>Taxi</span>
+            </li>
+            <li
+              className=' text-white rounded-md flex flex-col h-[36px] items-center justify-center font-semibold text-sm cursor-pointer'
+              onClick={() => {
+                setPage('car-rent')
+              }}
+            >
+              <IoCarSportSharp color='white' size={24}/>
+              <span className=''>Car</span>
+            </li>
+            <li
+              className='text-white rounded-md flex flex-col h-[36px] items-center justify-center font-semibold text-sm cursor-pointer'
+              onClick={() => {
+                setPage('hire-driver')
+              }}
+            >
+              <FaUser color='white' size={24}/>
+              <span className=''>Driver</span>
+            </li>
+            <li
+              className='text-white rounded-md flex flex-col h-[36px] items-center justify-center font-semibold text-sm cursor-pointer'
+              onClick={() => {
+                setPage('fleet-list')
+              }}
+            >
+              <AiOutlineForm color='white' fill='white' size={24}/>
+              <span className=''>Fleet</span>
+            </li>
+            <li
+              className='text-white rounded-md flex flex-col h-[36px] items-center justify-center font-semibold text-sm cursor-pointer'
+              onClick={() => {
+                setPage('driver-list')
+              }}
+            >
+              <ImUsers color='white' size={24}/>
+              <span className=''>Register</span>
+            </li>
+            <li
+              onClick={() => {
+                setPage('contact')
+              }}
+              className='text-white rounded-md flex flex-col h-[36px] items-center justify-center font-semibold text-sm cursor-pointer'
+            >
+              <FaPhone color='white' size={24}/>
+              <span className=''>Contact</span>
+            </li>
+            <li
+              onClick={() => SignOut()}
+              className='flex flex-col justify-center items-center cursor-pointer pt-[10%]'
+            > <LuLogOut color='white' fill='white' size={18}/>
+              <span className=' font-semibold text-sm text-center flex items-center justify-center'>Logout</span>
+             
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      
+
     </>
   )
 }

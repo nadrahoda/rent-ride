@@ -15,9 +15,9 @@ const Hero = () => {
     <div className="hero ">
       <Navbar />
 
-      <div className="flex mt-[6%] ">
-        <div className="flex flex-col justify-center items-center w-1/2 space-y-6">
-          <h2 className="uppercase text-white font-bold text-5xl  w-[75%]">
+      <div className="flex mt-[6%] md:flex-row flex-col">
+        <div className="flex flex-col justify-center items-center w-full md:w-1/2 space-y-6">
+          <h2 className="uppercase text-white font-bold xl:text-5xl md:text-3xl  w-[75%]">
           Rent&Ride: <br/>Your One-Stop Mobility Solution
           </h2>
           <p className="text-white w-[75%]">
@@ -25,7 +25,7 @@ const Hero = () => {
           </p>
           <div className="flex items-start w-[75%] space-x-4">
             <Link href="/home">
-            <button className="bg-gray-200 bg-opacity-20 w-[200px] h-[50px] rounded-lg font-semibold flex items-center justify-center">
+            <button className="bg-gray-200 bg-opacity-20 xl:w-[200px] w-[140px] h-[50px] rounded-lg xl:font-semibold text-sm xl:text-lg flex items-center justify-center">
           <span className="mr-2"> Rent with us</span>   <FaArrowRight size={18}/>
             </button>
             </Link>
@@ -33,12 +33,21 @@ const Hero = () => {
            
           </div>
         </div>
-        <div className="flex justify-center items-center w-1/2">
+        <div className="md:flex hidden justify-center items-center xl:w-1/2 ">
           <Image
             src="/carr.png"
             className="w-full h-full"
             width={600}
             height={500}
+            alt="Car"
+          />
+        </div>
+        <div className="flex w-full md:hidden justify-center items-center  ">
+          <Image
+            src="/carr.png"
+            className="w-full "
+            width={400}
+            height={400}
             alt="Car"
           />
         </div>
@@ -94,7 +103,8 @@ const Hero = () => {
       <Footer/>
       <div className='mt-10 border-t border-opacity-15 border-white py-3'>
 
-<p className="text-xs text-gray-400 text-center"> Privacy Policy | Term & Condition | Copyright 2024 rent&ride. All right reserved</p> 
+<p className="text-xs text-gray-400 text-center md:block hidden"> Privacy Policy | Term & Condition | Copyright 2024 rent&ride. All right reserved</p> 
+<p className="text-xs text-gray-400 text-center md:hidden block"> Copyright 2024 rent&ride. All right reserved</p> 
 </div>
       
     </div>

@@ -42,7 +42,7 @@ export default function Home () {
 
   return (
     <>
-      <div className='p-5 sm:px-10 md:px-20 min-h-screen text-black'>
+      <div className='p-5 sm:px-10 md:px-20 min-h-screen  text-black'>
         <DriverContext.Provider value={{ showToast, setShowToast }}>
           <DriversFilter
             driversList={driversOrgList}
