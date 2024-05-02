@@ -121,6 +121,9 @@ const Form = ({ car, price }: any) => {
         try {
           const docRef = await addDoc(collection(db, 'carbooking'), {
             Car: car.name,
+            email:localStorage.getItem('USER')
+            
+            ,
             Location: formValue.location,
             PickupDate: formValue.pickUpDate,
             PickTime: formValue.pickUpTime,

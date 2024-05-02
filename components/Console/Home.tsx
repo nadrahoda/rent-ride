@@ -30,10 +30,10 @@ const Home = () => {
         
         <div className='md:w-[85%] w-full bg-gray-100'>
         <div className='bg-black sm:hidden block pb-2'>
-        <Navbar SignOut={SignOut}/>
+        <Navbar page={page} setPage={setPage} SignOut={SignOut}/>
         </div>
           {page == 'home' && <HomePage page={page} setPage={setPage} />}
-          {/* {page =="book-taxi" && <BookTaxi/>} */}
+          {page =="book-taxi" && <BookTaxi/>}
           {page == 'car-rent' && <RentCar />}
           {page == 'fleet-list' && <FleetList />}
           {page == 'driver-list' && <DriverList />}

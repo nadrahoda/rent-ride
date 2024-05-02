@@ -123,7 +123,8 @@ const FleetList = () => {
       })
 
       console.log('Document written with ID: ', docRef.id)
-      alert('Car registration is Successful')
+      // alert('Car registration is Successful')
+      setIsModalOpen(true)
     } catch (e) {
       console.error('Error adding document: ', e)
     }
