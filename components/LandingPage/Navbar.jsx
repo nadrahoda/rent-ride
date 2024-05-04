@@ -59,9 +59,12 @@ const Navbar = ({ page, setPage, SignOut }) => {
         <div className='flex gap-5 text-white'>
           {isLoggedIn ? (
             <>
-              <Link href='/login'>
+              <Link href=''>
                 {' '}
-                <button className='text-white bg-gray-100 bg-opacity-20 py-1 px-6 rounded-md font-normal text-sm h-[32px]'>
+                <button className='text-white bg-gray-100 bg-opacity-20 py-1 px-6 rounded-md font-normal text-sm h-[32px]' onClick={()=>{
+                  localStorage.clear();
+                  handleLogout();
+                }}>
                   Log Out
                 </button>{' '}
               </Link>
