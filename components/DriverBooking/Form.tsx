@@ -159,7 +159,7 @@ const Form = ({ driver, price }: any) => {
               onChange={e => setLocation(e.target.value)}
               placeholder='Type here'
               name='address'
-              className='input input-bordered w-full max-w-lg select select-bordered w-full max-w-lg border-2 rounded-lg border-black py-1'
+              className='input input-bordered w-full max-w-lg select select-bordered w-full max-w-lg border-2 rounded-lg border-black py-1 pl-1'
             />
           </div>
           <div className='flex flec-col gap-5 mb-5'>

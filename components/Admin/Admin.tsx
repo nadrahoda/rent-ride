@@ -56,8 +56,6 @@ const Admin = () => {
     return (
       <>
         <div className=' text-white min-h-screen flex flex-col relative bg-black w-full'>
-          {/* <img src="/office.jpg" alt="background" className="absolute inset-0 w-full h-full object-cover filter blur-xl" /> */}
-          {/* <div className=''> */}
           <button
             className='self-end mr-4 mt-4 h-[40px] w-[120px] text-base rounded-md border-white bg-white text-black font-medium'
             onClick={() => {
@@ -175,7 +173,6 @@ const Admin = () => {
               </div>
             )}
           </div>
-          {/* </div> */}
         </div>
       </>
     )

@@ -101,63 +101,74 @@ const Profile = () => {
 
               <p className='text-lg pt-3 font-medium'>Car Booking Details</p>
               <div className='flex shadow-md pt-4 items-center text-center font-bold  border-b  rounded-md'>
-         <div className='flex-1 min-w-0'>Name</div>
-         <div className='flex-1 min-w-0'>Pickup Date</div>
-         <div className='flex-1 min-w-0'>Pickup Time</div>
-         <div className='flex-1 min-w-0'>Drop Date</div>
-         <div className='flex-1 min-w-0'>Drop Time</div>
-         <div className='flex-1 min-w-0'>Location</div>
-        <div className='flex-1 min-w-0'>Phone</div>
-         <div className='flex-1 min-w-0'>Ride Options</div>
-       </div>
-       {carBooking?.map((data, index) => {
-         return (
-          <div
-             key={index}
-             className='flex shadow-md pt-4 items-center text-center font-medium border-b text-base rounded-md '
-           >
-             <div className='flex-1 min-w-0'>{data.Car}</div>
-             <div className='flex-1 min-w-0'>{data.PickupDate}</div>
-             <div className='flex-1 min-w-0'>{data.PickTime}</div>
-             <div className='flex-1 min-w-0'>{data.DropupDate}</div>
-             <div className='flex-1 min-w-0'>{data.DropTime}</div>
-             <div className='flex-1 min-w-0'>{data.Location}</div>
-             <div className='flex-1 min-w-0'>{data.phone}</div>
-             <button onClick={() => cancelCarBooking(data.docId)} className='bg-gray-400 px-2 py-1 rounded-lg shadow-md'>Cancel Ride</button>
-           </div>
-         )
-      })}
-      <hr/>
-      <hr/>
-      <p className='text-lg pt-3 pb-2 font-medium'>Driver Booking Details</p>
+                <div className='flex-1 min-w-0'>Name</div>
+                <div className='flex-1 min-w-0'>Pickup Date</div>
+                <div className='flex-1 min-w-0'>Pickup Time</div>
+                <div className='flex-1 min-w-0'>Drop Date</div>
+                <div className='flex-1 min-w-0'>Drop Time</div>
+                <div className='flex-1 min-w-0'>Location</div>
+                <div className='flex-1 min-w-0'>Phone</div>
+                <div className='flex-1 min-w-0'>Ride Options</div>
+              </div>
+              {carBooking?.map((data, index) => {
+                return (
+                  <div
+                    key={index}
+                    className='flex shadow-md pt-4 items-center text-center font-medium border-b text-base rounded-md '
+                  >
+                    <div className='flex-1 min-w-0'>{data.Car}</div>
+                    <div className='flex-1 min-w-0'>{data.PickupDate}</div>
+                    <div className='flex-1 min-w-0'>{data.PickTime}</div>
+                    <div className='flex-1 min-w-0'>{data.DropupDate}</div>
+                    <div className='flex-1 min-w-0'>{data.DropTime}</div>
+                    <div className='flex-1 min-w-0'>{data.Location}</div>
+                    <div className='flex-1 min-w-0'>{data.phone}</div>
+                    <button
+                      onClick={() => cancelCarBooking(data.docId)}
+                      className='bg-gray-400 px-2 py-1 rounded-lg shadow-md'
+                    >
+                      Cancel Ride
+                    </button>
+                  </div>
+                )
+              })}
+              <hr />
+              <hr />
+              <p className='text-lg pt-3 pb-2 font-medium'>
+                Driver Booking Details
+              </p>
               <div className='flex shadow-md py-4 items-center text-center font-bold  border-b  rounded-md'>
-              <div className='flex-1 min-w-0'>Name</div>
-         <div className='flex-1 min-w-0'>Pickup Date</div>
-         <div className='flex-1 min-w-0'>Pickup Time</div>
-        <div className='flex-1 min-w-0'>Drop Date</div>
-         <div className='flex-1 min-w-0'>Drop Time</div>
-         <div className='flex-1 min-w-0'>Location</div>
-         <div className='flex-1 min-w-0'>Phone</div>
-         <div className='flex-1 min-w-0'>Driver options</div>
+                <div className='flex-1 min-w-0'>Name</div>
+                <div className='flex-1 min-w-0'>Pickup Date</div>
+                <div className='flex-1 min-w-0'>Pickup Time</div>
+                <div className='flex-1 min-w-0'>Drop Date</div>
+                <div className='flex-1 min-w-0'>Drop Time</div>
+                <div className='flex-1 min-w-0'>Location</div>
+                <div className='flex-1 min-w-0'>Phone</div>
+                <div className='flex-1 min-w-0'>Driver options</div>
               </div>
               {driverBooking?.map((data, index) => {
-       return (
-           <div
-             key={index}
-            className='flex shadow-md py-4 items-center text-center font-medium border-b text-base rounded-md'
-           >
-             <div className='flex-1'>{data.Driver}</div>
-             <div className='flex-1 min-w-0'>{data.PickupDate}</div>
-             <div className='flex-1 min-w-0'>{data.PickTime}</div>
-             <div className='flex-1 min-w-0'>{data.DropupDate}</div>
-             <div className='flex-1 min-w-0'>{data.DropTime}</div>
-            <div className='flex-1 min-w-0'>{data.Location}</div>
-            <div className='flex-1 min-w-0'>{data.phone}</div>
-            <button className='bg-gray-400 px-2 py-1 rounded-lg shadow-md' onClick={() => cancelDriverBooking(data.docId)}>Cancel Ride</button>
-           </div>
-         )
-       })}
-
+                return (
+                  <div
+                    key={index}
+                    className='flex shadow-md py-4 items-center text-center font-medium border-b text-base rounded-md'
+                  >
+                    <div className='flex-1'>{data.Driver}</div>
+                    <div className='flex-1 min-w-0'>{data.PickupDate}</div>
+                    <div className='flex-1 min-w-0'>{data.PickTime}</div>
+                    <div className='flex-1 min-w-0'>{data.DropupDate}</div>
+                    <div className='flex-1 min-w-0'>{data.DropTime}</div>
+                    <div className='flex-1 min-w-0'>{data.Location}</div>
+                    <div className='flex-1 min-w-0'>{data.phone}</div>
+                    <button
+                      className='bg-gray-400 px-2 py-1 rounded-lg shadow-md'
+                      onClick={() => cancelDriverBooking(data.docId)}
+                    >
+                      Cancel Ride
+                    </button>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
