@@ -1,20 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoHomeSharp } from 'react-icons/io5'
 import { FaPhone, FaTaxi } from 'react-icons/fa6'
 import { IoCarSportSharp } from 'react-icons/io5'
-import { FaUser } from 'react-icons/fa'
+import { FaUser, FaUserCircle } from 'react-icons/fa'
 import { AiOutlineForm } from 'react-icons/ai'
 import { ImUsers } from 'react-icons/im'
 import { LuLogOut } from 'react-icons/lu'
+import { useRouter } from 'next/navigation'
+import { auth } from '../../firebase'
+import Link from 'next/link'
 const Sidebar = ({ page, setPage, SignOut }: any) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        setIsLoggedIn(true)
+      } else {
+        setIsLoggedIn(false)
+      }
+    })
+    return () => unsubscribe()
+  }, [])
+  const handleLogout = async () => {
+    try {
+      await auth.signOut()
+      setIsLoggedIn(false)
+      router.push('/')
+    } catch (error) {
+      console.error('Error signing out:', error)
+    }
+  }
   return (
     <>
       <div className='text-white bg-black h-full bg-opacity-90 rounded-2xl lg:block hidden'>
         <div className='flex items-center w-full justify-center pt-4'>
           <img src='/logowhite.png' height={120} width={120} alt='Logo' />
         </div>
-        <div className='pt-[25%] flex items-center w-full ml-6'>
+        <div className='pt-[15%] flex items-center w-full ml-6'>
           <ul className='flex flex-col space-y-6 w-[80%]'>
+          {isLoggedIn ? (
+    <li className='flex items-center justify-center'>
+      <Link href='/profile'>
+        <FaUserCircle size={36} className='mt-1' />
+      </Link>
+    </li>
+  ) : null}
+          
             <li
               onClick={() => {
                 setPage('home')
@@ -92,6 +126,7 @@ const Sidebar = ({ page, setPage, SignOut }: any) => {
         </div>
         <div className='pt-[30%] flex items-center justify-center  mx-2'>
           <ul className='flex flex-col space-y-8 w-[50%]'>
+         
             <li
               onClick={() => {
                 setPage('home')

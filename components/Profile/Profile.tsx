@@ -84,9 +84,7 @@ const Profile = () => {
         setEmail(doc.data().email)
       }
     })
-    
-
-   
+       
   }
   useEffect(() => {
     getCarBooking()
