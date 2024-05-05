@@ -4,7 +4,6 @@ import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../../firebase'
 const FleetList = () => {
   const [currentPage, setCurrentPage] = useState(1)
-
   const [hostDetails, setHostDetails] = useState({
     name: '',
     email: '',
@@ -12,7 +11,6 @@ const FleetList = () => {
     panNumber: '',
     address: ''
   })
-
   const [carDetails, setCarDetails] = useState({
     licenseNumber: '',
     brand: '',
@@ -27,9 +25,7 @@ const FleetList = () => {
     toDate: '',
     expectedPricing: ''
   })
-
   const [isModalOpen, setIsModalOpen] = useState(false)
-
   const handleChange = (
     e:
       | React.ChangeEvent<HTMLSelectElement>
@@ -113,17 +109,16 @@ const FleetList = () => {
         car_model: carDetails.model,
         chassis_model: carDetails.chassisNumber,
         registration_year: carDetails.yearOfRegistration,
-        start_date: carDetails.fromDate, // Assuming fromDate is the start date
-        end_date: carDetails.toDate, // Assuming toDate is the end date
+        start_date: carDetails.fromDate, 
+        end_date: carDetails.toDate, 
         expected_price: carDetails.expectedPricing,
-        status: 'pending', // Set the initial status as "Pending" or any other appropriate value
+        status: 'pending', 
         city: carDetails.city,
         transmission_type: carDetails.transmissionType,
         fuelType: carDetails.fuelType
       })
 
       console.log('Document written with ID: ', docRef.id)
-      // alert('Car registration is Successful')
       setIsModalOpen(true)
     } catch (e) {
       console.error('Error adding document: ', e)
@@ -158,8 +153,6 @@ const FleetList = () => {
   }
 
   const handleModal = () => {
-    // Perform any necessary submission logic here
-    // For now, just open the modal
     setIsModalOpen(true)
   }
   return (

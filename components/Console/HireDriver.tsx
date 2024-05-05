@@ -22,10 +22,8 @@ export default function Home () {
     const filterList = driversOrgList.filter(
       (item: any) => item.rating == rating
     )
-
     setDriversList(filterList)
   }
-
   const orderDriverList = (order: any) => {
     const sortedData = [...driversOrgList].sort((a, b) =>
       order == -1 ? a.price - b.price : b.price - a.price

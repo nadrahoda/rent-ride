@@ -4,6 +4,12 @@ import { db } from '../../firebase'
 import { FaUserCircle } from 'react-icons/fa'
 import Link from 'next/link'
 const Profile = () => {
+  const [name,setName]=useState('')
+  const [email,setEmail]=useState('')
+  const [phone,setPhone]=useState('')
+  useEffect(()=>{
+
+  },[])
   const [carBooking, setCarBooking] = useState<
     { docId: string; [key: string]: any }[]
   >([])
@@ -66,9 +72,26 @@ const Profile = () => {
 
     setCarBooking(tempData)
   }
+  const getUserData = async () => {
+
+    const querySnapshot = await getDocs(collection(db, 'users'))
+    querySnapshot.forEach((doc: any) => {
+      console.log(doc.data().phone)
+
+      if (doc.data().email == localStorage.getItem('USER')) {
+        setName(doc.data().firstName+' '+doc.data().lastName)
+        setPhone(doc.data().phone)
+        setEmail(doc.data().email)
+      }
+    })
+    
+
+   
+  }
   useEffect(() => {
     getCarBooking()
     getDriverBooking()
+    getUserData()
   }, [])
   return (
     <>
@@ -81,18 +104,25 @@ const Profile = () => {
                 <FaUserCircle color='white' size={20} />
               </Link>
             </div>
-            <div className='px-10 pt-10'>
-              <h2 className='text-2xl font-semibold'>Nadra Hoda</h2>
+            <div className='px-10 pt-10 flex justify-between items-center'>
+              <div className=''>
+              <h2 className='text-2xl font-semibold'>{name}</h2>
               <div className='py-8 flex flex-col space-y-2'>
                 <div className='flex space-x-8'>
                   <p className='text-base font-medium'>Contact :</p>
-                  <p className='font-medium italic'>+91 7992207980 </p>
+                  <p className='font-medium italic'>+91 {phone} </p>
                 </div>
                 <div className='flex space-x-12'>
                   <p className='text-base font-medium'>Email: </p>
-                  <p className='font-medium italic'>nadrahoda2412@gmail.com</p>
+                  <p className='font-medium italic'>{email}</p>
                 </div>
               </div>
+              </div>
+              <div className='pr-10 pb-10'>
+                <FaUserCircle size={100} color='black'/>
+              </div>
+             
+            
             </div>
             <hr />
             <hr />
@@ -114,7 +144,7 @@ const Profile = () => {
                 return (
                   <div
                     key={index}
-                    className='flex shadow-md pt-4 items-center text-center font-medium border-b text-base rounded-md '
+                    className='flex pb-2 pr-2 shadow-md pt-4 items-center text-center font-medium border-b text-base rounded-md '
                   >
                     <div className='flex-1 min-w-0'>{data.Car}</div>
                     <div className='flex-1 min-w-0'>{data.PickupDate}</div>
@@ -151,7 +181,7 @@ const Profile = () => {
                 return (
                   <div
                     key={index}
-                    className='flex shadow-md py-4 items-center text-center font-medium border-b text-base rounded-md'
+                    className='flex shadow-md pb-2 pr-2 py-4 items-center text-center font-medium border-b text-base rounded-md'
                   >
                     <div className='flex-1'>{data.Driver}</div>
                     <div className='flex-1 min-w-0'>{data.PickupDate}</div>

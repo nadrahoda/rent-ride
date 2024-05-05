@@ -42,12 +42,12 @@ const DriverList = () => {
         email: email,
         phone: phone,
         location: location,
-        date: startDate, // Assuming startDate is the date of registration
+        date: startDate,
         license_number: licenseNumber,
         car_type: carType,
         transmission_type: transmissionType,
         salary: salary,
-        status: 'pending' // Set the initial status as "Pending" or any other appropriate value
+        status: 'pending' 
       })
       console.log('Document written with ID: ', docRef.id)
       alert('Driver Registration Successfull')

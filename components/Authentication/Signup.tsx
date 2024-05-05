@@ -4,16 +4,38 @@ import Link from 'next/link'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../firebase'
 import { useRouter } from 'next/router'
+import { collection, addDoc } from 'firebase/firestore'
+import { db } from '../../firebase'
 const Signup = () => {
   const [email, setEmail] = useState('')
+  const [firstName,setFirstName]=useState('')
+  const [lastName,setLastName]=useState('')
+const [phone,setPhone]=useState('')
   const [password, setPassword] = useState('')
   const navigate = useRouter()
+  const AddUser = async () => {
+    
+        try {
+          const docRef = await addDoc(collection(db, 'users'), {
 
+            firstName:firstName,
+            lastName:lastName,
+            email:email,
+            password:password,
+            phone:phone
+         
+          })
+          console.log('Document written with ID: ', docRef.id)
+        } catch (e) {
+          console.error('Error adding document: ', e)
+        }
+      
+  }
   function Signup (e: any) {
     e.preventDefault()
     createUserWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-        // Signed up
+      AddUser()
         alert('User Signed Up successfully')
         const user = userCredential.user
         console.log('signup ' + user)
@@ -65,11 +87,19 @@ const Signup = () => {
                     <div className='flex gap-2 w-full'>
                       <input
                         type='text'
+                        value={firstName}
+                        onChange={e => {
+                          setFirstName(e.target.value)
+                        }}
                         placeholder='First Name'
                         className='w-[50%] h-[40px] rounded-md pl-2 text-black'
                       />
                       <input
                         type='text'
+                        value={lastName}
+                        onChange={e => {
+                          setLastName(e.target.value)
+                        }}
                         placeholder='Last Name'
                         className='w-[50%] h-[40px] rounded-md pl-2 text-black'
                       />
@@ -85,6 +115,10 @@ const Signup = () => {
                         className=' w-full h-[40px] rounded-md pl-2 text-black'
                       />
                       <input
+                      value={phone}
+                      onChange={e => {
+                        setPhone(e.target.value)
+                      }}
                         type='number'
                         placeholder='Phone Number'
                         className=' w-full h-[40px] rounded-md pl-2 text-black'

@@ -26,7 +26,6 @@ const BookTaxi = () => {
       })
     })
   }
-
   return (
     <div className='min-h-screen'>
       <UserLocationContext.Provider value={{ userLocation, setUserLocation }}>
@@ -43,17 +42,15 @@ const BookTaxi = () => {
                 value={{ carAmount, setCarAmount }}
               >
                 <div
-                  className='grid grid-cols-1 
-   lg:grid-cols-3'
+                  className='grid grid-cols-1 lg:grid-cols-3'
                 >
                   <div className=''>
                     <Booking />
                   </div>
                   <div
-                    className='col-span-2
-      '
+                    className='col-span-2'
                   >
-                    <MapboxMap />
+                  <MapboxMap />
                   </div>
                 </div>
               </SelectedCarAmountContext.Provider>
